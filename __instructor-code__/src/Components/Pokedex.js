@@ -11,7 +11,7 @@ const Pokedex = (props) => {
                         name={element.name}
                         img={element.img}
                         id={element.id}
-                        renameFn={props.renamePokemonFn}
+                        renameFn={props.renameFn}
                         releaseFn={props.releaseFn}/>
                 )
             })}

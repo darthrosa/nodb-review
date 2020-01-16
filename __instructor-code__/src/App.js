@@ -12,7 +12,7 @@ class App extends Component {
       pokemonCaught: []
     }
     this.catchPokemon = this.catchPokemon.bind(this);
-    this.renamePokemon = this.renamePokemon.bind(this);
+    this.rename = this.rename.bind(this);
     this.releasePokemon = this.releasePokemon.bind(this);
   }
 
@@ -22,7 +22,7 @@ class App extends Component {
     }).catch(err => console.log(err));
   }
 
-  renamePokemon(id, body){
+  rename(id, body){
     axios.put(`/api/pokemon/${id}`, body).then(res => {
       this.setState({pokemonCaught: res.data})
     }).catch(err => console.log(err))
@@ -42,9 +42,9 @@ class App extends Component {
         <Finder catchFn={this.catchPokemon}/>
         <h2>Pokedex</h2>
         <Pokedex 
-         pokemonList={this.state.pokemonCaught}
-         renamePokemonFn={this.renamePokemon}
-         releaseFn={this.releasePokemon}/>
+          pokemonList={this.state.pokemonCaught}
+          renameFn={this.rename}
+          releaseFn={this.releasePokemon}/>
       </div>
     )
   }

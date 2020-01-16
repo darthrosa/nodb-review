@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Grass from './Grass'
+import Grass from './Grass';
 import axios from 'axios';
 
 class Finder extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props);
         this.state = {
             wildPokemon: []
         }
@@ -17,9 +17,8 @@ class Finder extends Component {
     refreshPokemon = () => {
         axios.get('/api/wild-pokemon').then(res => {
             this.setState({wildPokemon: res.data})
-        }).catch(err => console.log(err)); 
+        }).catch(err => console.log(err));
     }
-
 
     render(){
         const mappedPokemon = this.state.wildPokemon.map((pokemon, i) => {
@@ -29,7 +28,6 @@ class Finder extends Component {
                     pokemon={pokemon}
                     catchFn={this.props.catchFn}
                     refreshFn={this.refreshPokemon}/>
-                    
             )
         })
         return(

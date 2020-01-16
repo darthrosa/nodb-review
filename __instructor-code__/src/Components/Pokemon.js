@@ -22,19 +22,19 @@ class Pokemon extends Component {
         this.props.renameFn(this.props.id, {name: this.state.nameInput || this.props.name})
         this.toggleEdit();
     }
-    
+
     render(){
         return(
-        <div>
-            {this.state.toggleView
-            ? (<div>
-                <input value={this.state.nameInput} onChange={(e) => this.handleInput(e.target.value)} />
-                <button onClick={this.updateName}>Update</button>
-               </div>)
-            : <h3 onDoubleClick={this.toggleEdit}>{this.props.name}</h3>}
-            <img src={this.props.img} alt={this.props.name} />
-            <button onClick={() => this.props.releaseFn(this.props.id)}>Release</button>
-        </div>
+            <div>
+                {this.state.toggleView
+                ? (<div>
+                    <input value={this.state.nameInput} onChange={(e) => this.handleInput(e.target.value)} />
+                    <button onClick={this.updateName}>Update</button>
+                   </div>)
+                : <h3 onDoubleClick={this.toggleEdit}>{this.props.name}</h3>}
+                <img src={this.props.img} alt={this.props.name} />
+                <button onClick={() => this.props.releaseFn(this.props.id)}>Release</button>
+            </div>
         )
     }
 }

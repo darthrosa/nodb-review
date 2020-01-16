@@ -13,8 +13,8 @@ class Grass extends Component {
     render(){
         return(
             <div className="grass">
-                <img 
-                    onClick={() => this.catchPokemon()}
+                <img
+                    onClick={() => this.catchPokemon()} 
                     src={this.props.pokemon.sprites.front_default} 
                     alt={this.props.pokemon.name}/>
             </div>

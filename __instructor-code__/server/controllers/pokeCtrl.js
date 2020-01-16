@@ -7,9 +7,9 @@ module.exports = {
     },
     catch: (req, res) => {
         const {name, img} = req.body;
-        const pokemonObj= {
-            name: name,
-            img: img,
+        const pokemonObj = {
+            name,
+            img,
             id: id++
         }
         pokemonCaught.push(pokemonObj);
@@ -25,8 +25,9 @@ module.exports = {
     },
     release: (req, res) => {
         const {id} = req.params;
+        
         const index = pokemonCaught.findIndex(element => element.id === +id);
         pokemonCaught.splice(index, 1);
-        res.status.send(pokemonCaught);
+        res.status(200).send(pokemonCaught);
     }
 }
